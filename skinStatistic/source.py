@@ -71,14 +71,16 @@ for i in range(len(dirArr)):
     ""
 """
 
-myPath = "./Data/"
-
+# myPath = "./Data/"
+myPath = "/home/tien/OpenCV/Skin/Data"
 #myPath = "/home/tien/TestProject/Data"
 
 print(myPath)
 for root, directories, filenames in os.walk(myPath):
     if filenames:
+        
         imgPath = os.path.join(root, filenames[0])
+        print(imgPath)
         img = cv2.imread(imgPath)
         frameHeight = img.shape[0]
         frameWidth  = img.shape[1]
@@ -91,10 +93,12 @@ for root, directories, filenames in os.walk(myPath):
     for filename in filenames:
         if filename.endswith(".jpg"):
             imgPath = os.path.join(root, filename)
-            img = cv2.imread(imgPath)
-            rGBAmountUpdate(img, frameHeight, frameWidth)
+            print(imgPath)
+            # img = cv2.imread(imgPath)
+            # rGBAmountUpdate(img, frameHeight, frameWidth)
 
-
+# print(filenames)
+'''
 #red skin plot
 plt.subplot(131)
 plt.title('Red Amount Plot')
@@ -120,3 +124,4 @@ plt.plot(bSkinAmount, 'b', bNotSkinAmount, 'k')
 
 print("Program executed in %s seconds " %(time.time() - startTime))
 plt.show()
+'''
