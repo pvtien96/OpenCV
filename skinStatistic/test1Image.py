@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import time
 
 from sklearn import preprocessing
+import json, codecs
 
 startTime = time.time()
 
@@ -14,7 +15,7 @@ rSkinAmount = np.zeros((256,), dtype=int)
 gSkinAmount = np.zeros((256,), dtype=int)
 bSkinAmount = np.zeros((256,), dtype=int)
 
-print(rSkinAmount[255])
+#print(rSkinAmount[255])
 
 rNotSkinAmount = np.zeros((256,), dtype=int)
 gNotSkinAmount = np.zeros((256,), dtype=int)
@@ -229,15 +230,43 @@ plt.plot(standardlizedRSkinAmount, 'r', standardlizedFixRNotSkinAmount, 'k')
 #standardlized fixed: green vs non-green skin plot
 plt.subplot(4, 3, 11)
 plt.title('Fixed Standardlized green vs non-green')
-plt.plot(standardlizedGSkinAmount, 'r', standardlizedFixGNotSkinAmount, 'k')
+plt.plot(standardlizedGSkinAmount, 'g', standardlizedFixGNotSkinAmount, 'k')
 
 #standardlized fixed: blue vs non-blue skin plot
 plt.subplot(4, 3, 12)
 plt.title('Fixed Standardlized blue vs non-blue')
-plt.plot(standardlizedBSkinAmount, 'r', standardlizedFixBNotSkinAmount, 'k')
+plt.plot(standardlizedBSkinAmount, 'b', standardlizedFixBNotSkinAmount, 'k')
 
-#print(rSkinAmount)
+#process data with FILES!
+toListRSkinAmount = rSkinAmount.tolist()
+toListGSkinAmount = gSkinAmount.tolist()
+toListBSkinAmount = bSkinAmount.tolist()
+rSkinAmountFile = '/home/tien/OpenCV/skinStatistic/groundTruthData/rSkinAmount.json'
+gSkinAmountFile = '/home/tien/OpenCV/skinStatistic/groundTruthData/gSkinAmount.json'
+bSkinAmountFile = '/home/tien/OpenCV/skinStatistic/groundTruthData/bSkinAmount.json'
+toListRNotSkinAmount = rNotSkinAmount.tolist()
+toListGNotSkinAmount = gNotSkinAmount.tolist()
+toListBNotSkinAmount = bNotSkinAmount.tolist()
+rNotSkinAmountFile = '/home/tien/OpenCV/skinStatistic/groundTruthData/rNotSkinAmount.json'
+gNotSkinAmountFile = '/home/tien/OpenCV/skinStatistic/groundTruthData/gNotSkinAmount.json'
+bNotSkinAmountFile = '/home/tien/OpenCV/skinStatistic/groundTruthData/bNotSkinAmount.json'
+
+#below line save data in .json format JSONIFY 
+json.dump(toListRSkinAmount, codecs.open(rSkinAmountFile, 'w', encoding='utf-8'), separators=(',', ':'), sort_keys=True, indent=4)
+json.dump(toListGSkinAmount, codecs.open(gSkinAmountFile, 'w', encoding='utf-8'), separators=(',', ':'), sort_keys=True, indent=4)
+json.dump(toListBSkinAmount, codecs.open(bSkinAmountFile, 'w', encoding='utf-8'), separators=(',', ':'), sort_keys=True, indent=4)
+json.dump(toListRNotSkinAmount, codecs.open(rNotSkinAmountFile, 'w', encoding='utf-8'), separators=(',', ':'), sort_keys=True, indent=4)
+json.dump(toListGNotSkinAmount, codecs.open(gNotSkinAmountFile, 'w', encoding='utf-8'), separators=(',', ':'), sort_keys=True, indent=4)
+json.dump(toListBNotSkinAmount, codecs.open(bNotSkinAmountFile, 'w', encoding='utf-8'), separators=(',', ':'), sort_keys=True, indent=4)
+
+#UNJSONIFY
+
+rSkinAmountText = codecs.open(rSkinAmountFile, 'r', encoding='utf-8').read()
+toListRSkinAmount = json.loads(rSkinAmountText)
+rSkinAmount = np.array(toListRSkinAmount)
+print(rSkinAmount)
+
+
 print("Program executed in %s seconds " %(time.time() - startTime))
 
 plt.show()
-
