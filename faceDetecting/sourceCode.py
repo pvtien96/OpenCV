@@ -1,13 +1,14 @@
 import cv2
 import sys
 
-imagePath = '/home/tien/TestProject/faceDetecting/abba.png'
-cascPath = "haarcascade_frontalface_default.xml"
+imagePath = '/home/tien/OpenCV/faceDetecting/abba.png'
+cascPath = "/home/tien/OpenCV/faceDetecting/haarcascade_frontalface_default.xml"
 
 #create the haar cascade
 faceCascade = cv2.CascadeClassifier(cascPath)
 
 image = cv2.imread(imagePath)
+# cv2.imshow('test image', image)
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 """

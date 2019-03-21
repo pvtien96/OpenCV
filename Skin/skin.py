@@ -2,8 +2,8 @@ import numpy as np
 import cv2
 import matplotlib.pyplot as plt 
 
-'''
-img = cv2.imread('/home/tien/TestProject/Skin/2(3-30-20184-00-20PM)/2 1.jpg')
+
+img = cv2.imread('/home/tien/OpenCV/Skin/1 04.jpg')
 img = img[..., ::-1]
 
 NRow = img.shape[0]
@@ -23,6 +23,7 @@ for i in range(NRow):
 plt.subplot(122)
 plt.imshow(outImg)
 plt.show()
+
 '''
 imgPath = '/home/tien/OpenCV/Skin/2.1.png'
 img = cv2.imread(imgPath)
@@ -48,3 +49,4 @@ for i in range(NRow):
             sum += 1
             print (r, " ", g, " ", b , " ", i)
 print(sum/(NRow*NCol))
+'''

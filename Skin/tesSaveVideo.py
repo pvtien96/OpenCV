@@ -46,7 +46,7 @@ def skinDetecting(img, frameHeight, frameWidth):
                     
     return outImg
 
-cap = cv2.VideoCapture('/home/tien/TestProject/Skin/video.avi')
+cap = cv2.VideoCapture('/home/tien/OpenCV/Skin/video.avi')
 if (cap.isOpened() == False):
     print("Erro opening video stream or file")
 else:
