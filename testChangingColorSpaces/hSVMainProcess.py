@@ -9,15 +9,15 @@ import time
 import json, codecs
 
 from statistics import mean
-from functions import passedCondition, caculateIOU, caculateRecall, viusualizeResult
+from hSVOptionalFunctions import passedCondition, caculateIOU, caculateRecall, viusualizeResult
 startTime = time.time()
 
 errorList = []
-dataPropertisesFilePath = '/home/tien/OpenCV/handDetection/availableData/dataPropertisesFile.json'
-listIOUFilePath = '/home/tien/OpenCV/handDetection/availableData/listIOUFile.json'
-listRecallFilePath = '/home/tien/OpenCV/handDetection/availableData/listRecallFile.json'
-errorListFilePath = '/home/tien/OpenCV/handDetection/availableData/errorListFile.json'
-conditionType = 1
+dataPropertisesFilePath = '/home/tien/OpenCV/testChangingColorSpaces/availableData/dataPropertisesFile.json'
+listIOUFilePath = '/home/tien/OpenCV/testChangingColorSpaces/availableData/listIOUFile.json'
+listRecallFilePath = '/home/tien/OpenCV/testChangingColorSpaces/availableData/listRecallFile.json'
+errorListFilePath = '/home/tien/OpenCV/testChangingColorSpaces/availableData/errorListFile.json'
+conditionType = 2
 dataPropertises = []
 listIOU = []
 listRecall = []
@@ -53,7 +53,7 @@ except:
 
     def quickQuitFunction():
         pictureQuantity = 0
-        count = 10000
+        count = 5000
         #start matching png vs jpg
         #myPath as level0Files
         # def myFunc(): #using myFunc to quit multi loops

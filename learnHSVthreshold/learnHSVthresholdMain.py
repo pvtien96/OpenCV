@@ -43,13 +43,13 @@ rNotSkinAmountFile = '/home/tien/OpenCV/skinStatistic/groundTruthData/rNotSkinAm
 gNotSkinAmountFile = '/home/tien/OpenCV/skinStatistic/groundTruthData/gNotSkinAmount.json'
 bNotSkinAmountFile = '/home/tien/OpenCV/skinStatistic/groundTruthData/bNotSkinAmount.json'
 """
-hSkinAmountFile = '/home/tien/OpenCV/learnHSVthreshold/groundTruthData/rSkinAmount.json'
-sSkinAmountFile = '/home/tien/OpenCV/learnHSVthreshold/groundTruthData/gSkinAmount.json'
-vSkinAmountFile = '/home/tien/OpenCV/learnHSVthreshold/groundTruthData/bSkinAmount.json'
+hSkinAmountFile = '/home/tien/OpenCV/learnHSVthreshold/groundTruthData/hSkinAmount.json'
+sSkinAmountFile = '/home/tien/OpenCV/learnHSVthreshold/groundTruthData/sSkinAmount.json'
+vSkinAmountFile = '/home/tien/OpenCV/learnHSVthreshold/groundTruthData/vSkinAmount.json'
 
-hNotSkinAmountFile = '/home/tien/OpenCV/learnHSVthreshold/groundTruthData/rNotSkinAmount.json'
-sNotSkinAmountFile = '/home/tien/OpenCV/learnHSVthreshold/groundTruthData/gNotSkinAmount.json'
-vNotSkinAmountFile = '/home/tien/OpenCV/learnHSVthreshold/groundTruthData/bNotSkinAmount.json'
+hNotSkinAmountFile = '/home/tien/OpenCV/learnHSVthreshold/groundTruthData/hNotSkinAmount.json'
+sNotSkinAmountFile = '/home/tien/OpenCV/learnHSVthreshold/groundTruthData/sNotSkinAmount.json'
+vNotSkinAmountFile = '/home/tien/OpenCV/learnHSVthreshold/groundTruthData/vNotSkinAmount.json'
 
 
 
