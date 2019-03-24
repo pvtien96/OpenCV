@@ -20,8 +20,13 @@ for i in range(NRow):
         b = img.item(i, j, 2)
         if ((r>g) and (r>b) and (r>95) and (g>40) and (b>20)):
             outImg[i, j] = img[i, j]
+
+#test changing rgb2hsv
+outImgHSV = cv2.cvtColor(outImg, cv2.COLOR_BGR2HSV)
+
 plt.subplot(122)
 plt.imshow(outImg)
+plt.imshow(outImgHSV)
 plt.show()
 
 '''

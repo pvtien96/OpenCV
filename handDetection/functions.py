@@ -4,7 +4,7 @@ def passedCondition(conditionType, r, g, b):
         if ((r>g) and (r>b) and (r>95) and (g>40) and (b>20)):
             return True
     if conditionType == 2:
-        if (73<r and r<108) and (50<r and r<84) and (48<b and b<79):
+        if (73<r and r<108) and (50<g and g<84) and (48<b and b<79):
             return True
     return False
 
