@@ -78,6 +78,8 @@ def viusualizeResult(pngImage, jpgImage, frameHeight, frameWidth, conditionType)
                     pngImageOutput [i, j] = 255
     return(pngImageOutput)
 
+"""
+#test 1 image
 pathPNG = '/home/tien/OpenCV/Skin/Data/SegmentedData/Binh/1/1.1/1 01.png'
 pathJPG = '/home/tien/OpenCV/Skin/Data/SegmentedData/Binh/1/1 (3-19-2018 10-18-37 AM)/1 01.jpg'
 
@@ -88,3 +90,4 @@ imageFromPathJPG = cv2.imread(pathJPG)
 
 plt.imshow(viusualizeResult(imageFromPathPNG, imageFromPathJPG, 480, 640, 2))
 plt.show()
+"""

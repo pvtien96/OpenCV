@@ -34,8 +34,8 @@ mask = cv2.inRange(hsvImage, lower_SkinHSV, upper_SkinHSV)
 _, contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
 
 #for contour in contours:
-lowerHandArea = 500
-upperHandArea = 700
+lowerHandArea = 600
+upperHandArea = 1000
 
 print(contours)
 
