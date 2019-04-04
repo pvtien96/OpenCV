@@ -45,6 +45,16 @@ for contour in contours:
     if (lowerHandArea < area < upperHandArea):
         cv2.drawContours (image, contour, -1, (0, 255, 0), 3)
 
+        #draw straight bounding rectangle
+        x, y, w, h = cv2.boundingRect(contour)
+        cv2.rectangle(image, (x,y), (x+w, y+h), (0,0,255),2)
+
+        #draw rotated rectangle
+        rectangle = cv2.minAreaRect(contour)
+        box = cv2.boxPoints(rectangle)
+        box = np.int0(box)
+        cv2.drawContours(image, [box], 0, (255,0,0), 2)
+
 
 cv2.imshow('Original Image', image)
 cv2.imshow('HSV Image', hsvImage)
