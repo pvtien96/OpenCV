@@ -2,7 +2,8 @@ import cv2
 import numpy as np 
 import matplotlib.pyplot as plt
 
-image=cv2.imread('/home/tien/OpenCV/testContour/1 03.jpg')
+#image=cv2.imread('/home/tien/OpenCV/testContour/1 03.jpg')
+image = cv2.imread('/home/tien/OpenCV/Skin/Data/SegmentedData/Hung/2/4 (3-23-2018 1-44-41 PM)/4 11.jpg')
 hsvImage = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
 
