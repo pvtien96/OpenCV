@@ -91,7 +91,7 @@ except:
     #print(errorList)
 
     #SAVE data to FILES!
-    with open(widthListFilePath, 'w') as areaListFile:
+    with open(widthListFilePath, 'w') as widthListFile:
         json.dump(widthList, widthListFile)
     with open(heightListFilePath, 'w') as heightListFile:
         json.dump(heightList, heightListFile)
@@ -109,11 +109,18 @@ print('Min height = ', min(heightList))
 print('Mean height = ', mean(heightList))
 print('Max height = ', max(heightList))
 
-
+plt.subplot(121)
 plt.title("Width Gaussian Histogram")
 plt.xlabel("Width Value")
 plt.ylabel("Frequency")
 plt.hist(widthList)
+
+plt.subplot(122)
+plt.title("Height Gaussian Histogram")
+plt.xlabel("Height Value")
+plt.ylabel("Frequency")
+plt.hist(heightList)
+
 plt.show()
 
 print("Program executed in %s seconds " %(time.time() - startTime))

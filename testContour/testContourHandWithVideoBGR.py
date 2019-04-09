@@ -2,7 +2,7 @@ import cv2
 import numpy as np 
 from matplotlib import pyplot as plt 
 
-def skinDetectingBasedOnBGRAndAreaThreshold(image):
+def skinDetectingBasedOnBGRAreaWHThreshold(image):
     
     lower_SkinBGR = np.array([48, 50, 73])
     upper_SkinBGR = np.array([79, 84, 108])
@@ -14,20 +14,31 @@ def skinDetectingBasedOnBGRAndAreaThreshold(image):
     lowerHandArea = 200
     upperHandArea = 1200
 
+    lowerWidth = 20
+    upperWidth = 70
+
+    lowerHeight = 20
+    upperHeight = 70
+
     for contour in contours:
         area = cv2.contourArea(contour)
 
         if (lowerHandArea < area < upperHandArea):
-            cv2.drawContours(image, contour, -1, (0, 255, 0), 3)
+            
             #draw straight bounding rectangle
-            x, y, w, h = cv2.boundingRect(contour)
-            cv2.rectangle(image, (x,y), (x+w, y+h), (0,0,255),2)
+            x, y, width, height = cv2.boundingRect(contour)
 
-            #draw rotated rectangle
-            rectangle = cv2.minAreaRect(contour)
-            box = cv2.boxPoints(rectangle)
-            box = np.int0(box)
-            cv2.drawContours(image, [box], 0, (255,0,0), 2)    
+            #check if width and hieght is ok
+            if (lowerWidth < width < upperWidth) and (lowerHeight < height < upperHeight):
+                cv2.drawContours(image, contour, -1, (0, 255, 0), 3)
+                cv2.rectangle(image, (x,y), (x+width, y+height), (0,0,255),2)
+
+                #draw rotated rectangle
+                rectangle = cv2.minAreaRect(contour)
+                box = cv2.boxPoints(rectangle)
+                box = np.int0(box)
+                cv2.drawContours(image, [box], 0, (255,0,0), 2)    
+            
     return image
 
 #video = cv2.VideoCapture('/home/tien/OpenCV/testContour/videoTest.avi')
@@ -50,7 +61,7 @@ outVideo = cv2.VideoWriter('/home/tien/OpenCV/testContour/videoTestBGROut.avi', 
 while (video.isOpened()):
     ret, frame = video.read()
     if ret == True:
-        contourDrawnImage = skinDetectingBasedOnBGRAndAreaThreshold(frame)
+        contourDrawnImage = skinDetectingBasedOnBGRAreaWHThreshold(frame)
         outVideo.write(contourDrawnImage)
 
         cv2.imshow('contourDrawnImage', contourDrawnImage)

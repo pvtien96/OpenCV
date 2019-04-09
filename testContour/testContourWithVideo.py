@@ -8,6 +8,10 @@ def skinDetectingBasedOnHSVAndAreaThreshold(image):
 
     lower_SkinHSV = np.array([0, 52, 75])
     upper_SkinHSV = np.array([15, 133, 108])
+    lowerWidth = 20
+    upperWidth = 80
+    lowerHeight = 20
+    upperHeight = 80
 
     mask = cv2.inRange(hsvImage, lower_SkinHSV, upper_SkinHSV)
 
@@ -20,16 +24,17 @@ def skinDetectingBasedOnHSVAndAreaThreshold(image):
         area = cv2.contourArea(contour)
 
         if (lowerHandArea < area < upperHandArea):
-            cv2.drawContours(image, contour, -1, (0, 255, 0), 3)
-            #draw straight bounding rectangle
-            x, y, w, h = cv2.boundingRect(contour)
-            cv2.rectangle(image, (x,y), (x+w, y+h), (0,0,255),2)
-
-            #draw rotated rectangle
-            rectangle = cv2.minAreaRect(contour)
-            box = cv2.boxPoints(rectangle)
-            box = np.int0(box)
-            cv2.drawContours(image, [box], 0, (255,0,0), 2)    
+            x, y, width, height = cv2.boundingRect(contour)
+            #check if wH is ok?
+            if (lowerWidth < width < upperWidth) and (lowerHeight < height < upperHeight):
+                cv2.drawContours(image, contour, -1, (0, 255, 0), 3)
+                #draw straight bounding rectangle
+                cv2.rectangle(image, (x,y), (x+width, y+height), (0,0,255),2)
+                #draw rotated rectangle
+                rectangle = cv2.minAreaRect(contour)
+                box = cv2.boxPoints(rectangle)
+                box = np.int0(box)
+                cv2.drawContours(image, [box], 0, (255,0,0), 2)    
     return image
 
 #video = cv2.VideoCapture('/home/tien/OpenCV/testContour/videoTest.avi')
