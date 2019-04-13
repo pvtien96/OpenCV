@@ -20,7 +20,7 @@ errorListFilePath = '/home/tien/OpenCV/testWorkingWithCSVFile/availableData/erro
 
 conditionType = 2
 dataPropertisesFrame = pandas.DataFrame(columns = ['Frame Height', 'Frame Width', 'Picture Quantity'])
-erroDataFrame = pandas.DataFrame(columns=['Original JPG'])
+errorDataFrame = pandas.DataFrame(columns=['Original JPG'])
 hSVResultDataFrame = pandas.DataFrame(columns = ['Original JPG', 'Binary PNG', 'IoU', 'Recall'])
 
 
@@ -115,7 +115,7 @@ except:
                                         return
 
                                 except:
-                                    erroDataFrame.loc[errorQuantity] = [pathJPG]
+                                    errorDataFrame.loc[errorQuantity] = [pathJPG]
                                     errorQuantity += 1
                                     print("Error!")
         return
@@ -128,7 +128,7 @@ except:
 
     dataPropertisesFrame.to_csv(dataPropertisesFilePath)
     hSVResultDataFrame.to_csv(resultFilePath)
-    erroDataFrame.to_csv(errorListFilePath)
+    errorDataFrame.to_csv(errorListFilePath)
     
 '''
     with open(resultFilePath, 'w') as hSVResultFile:
