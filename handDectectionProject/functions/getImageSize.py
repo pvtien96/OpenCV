@@ -9,6 +9,11 @@ def getImageSize(dataPath):
             image = cv2.imread(imagePath)
             frameHeight = image.shape[0]
             frameWidth  = image.shape[1]
-        break
+            break
     print('Got frameSize', frameHeight, frameWidth)
     return (frameHeight, frameWidth)
+'''
+#test
+dataPath = '/home/tien/OpenCV/handDectectionProject/data/SegmentedData'
+(Height, Width) = getImageSize(dataPath)
+'''

@@ -1,4 +1,7 @@
-from pairJPGvsPNG import pairingJPGvsPNG
+from getImageSize import getImageSize
+from pairJPGvsPNG import pairJPGvsPNG
 
 dataPath = '/home/tien/OpenCV/handDectectionProject/data/SegmentedData'
-pairing = pairingJPGvsPNG(dataPath)
+
+(frameHeight, frameWidth) = getImageSize(dataPath)
+pairing = pairJPGvsPNG(dataPath)
